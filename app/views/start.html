@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Prototype" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <h1 class="govuk-heading-l">{{ serviceName }}</h1>
+    
+    <p class="govuk-body">To apply for a juggling licence you must explain your juggling ability</p>
+
+    {{ govukButton({
+      text: "Start now",
+      isStartButton: true,
+      href: "/has-account"
+    }) }}
+
+
+  </div>
+</div>
+
+{% endblock %}
