@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Do you have an account?" %}
+{% set pageName = 'You cannot apply for a juggling license' %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -13,36 +13,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+  
+    <h1 class="govuk-heading-l">{{ pageName }}</h1>
+    <p class="govuk-body">You must be able to juggle at least one ball.</p>
     
-    <form method="post" novalidate> 
-      {{ govukRadios({
-        name: "new[hasAccount]",
-        fieldset: {
-          legend: {
-            text: pageName,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        value: data.new.hasAccount,
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
-          },
-          {
-            value: "No",
-            text: "No"
-          }
-        ]
-      }) }}
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
-
   </div>
 </div>
 
 {% endblock %}
+
+

@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Do you have an account?" %}
+{% set pageName = 'Check your email' %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -13,35 +13,32 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
-    <form method="post" novalidate> 
-      {{ govukRadios({
-        name: "new[hasAccount]",
-        fieldset: {
-          legend: {
-            text: pageName,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
+    <h1 class="govuk-heading-l">Check your email</h1>
+    <p>A confirmation code has been sent to {{data.new.emailAddress}}.</p>
+    <p>Check your spam or trash folder if you cannot find the email.</p>
+    <p>You can also <a href="/new/email-address">request another confirmation code</a>.</p>
+
+   <form novalidate method="post">
+      
+      {{ govukInput({
+        id: "[new][code]",
+        name: "[new][code]",
+        label: {
+          text: "Confirmation code",
+          classes: "govuk-label--s"
         },
-        value: data.new.hasAccount,
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
-          },
-          {
-            value: "No",
-            text: "No"
-          }
-        ]
+        value: data.new.code,
+        classes: "govuk-input--width-5"
       }) }}
 
       {{ govukButton({
         text: "Continue"
       }) }}
-    </form>
+   </form> 
 
+   
+   
+    
   </div>
 </div>
 

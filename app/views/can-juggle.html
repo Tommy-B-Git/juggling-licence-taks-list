@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Do you have an account?" %}
+{% set pageName = "Can you juggle at least one ball?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -16,7 +16,7 @@
     
     <form method="post" novalidate> 
       {{ govukRadios({
-        name: "new[hasAccount]",
+        name: "new[canJuggle]",
         fieldset: {
           legend: {
             text: pageName,
@@ -24,7 +24,7 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
-        value: data.new.hasAccount,
+        value: data.new.canJuggle,
         items: [
           {
             value: "Yes",

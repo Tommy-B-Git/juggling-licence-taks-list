@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Do you have an account?" %}
+{% set pageName = "Your email address" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -13,35 +13,26 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
-    <form method="post" novalidate> 
-      {{ govukRadios({
-        name: "new[hasAccount]",
-        fieldset: {
-          legend: {
+
+    <form novalidate method="post">
+        {{ govukInput({
+          id: "[new][emailAddress]",
+          name: "[new][emailAddress]",
+          label: {
             text: pageName,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        value: data.new.hasAccount,
-        items: [
-          {
-            value: "Yes",
-            text: "Yes"
+            classes: "govuk-label--l"
           },
-          {
-            value: "No",
-            text: "No"
-          }
-        ]
-      }) }}
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          value: data.new.emailAddress
+        }) }}
 
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
-
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form> 
+    
   </div>
 </div>
 
