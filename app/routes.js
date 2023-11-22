@@ -44,5 +44,7 @@ router.get('/account/sign-out', (req, res) => {
     res.redirect('/has-account')
 })
 
-/////////// GET application/show.js /////////
+
+
 require('./routes/application/show')(router)
+require('./routes/application/edit-personal-details')(router)
