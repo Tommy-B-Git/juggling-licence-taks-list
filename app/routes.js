@@ -34,7 +34,14 @@ router.post('/email-address', (req, res) => {
 
 /////////// CODE OK /////////
 router.post('/code', (req, res) => {
+    req.session.data.user = {}
     res.redirect('/application')
+})
+
+/////////// Signed out  /////////
+router.get('/account/sign-out', (req, res) => {
+    delete req.session.data.user
+    res.redirect('/has-account')
 })
 
 /////////// GET application/show.js /////////
