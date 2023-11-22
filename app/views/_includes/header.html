@@ -1,5 +1,13 @@
 {{ govukHeader({
     homepageUrl: "#",
     serviceName: serviceName,
-    serviceUrl: "/"
+    serviceUrl: "/",
+    navigation: [{
+        href: '/application',
+        text: 'Application'
+    },
+    {
+        href: '/account/sign-out',
+        text: 'Sign out'
+    }]
 }) }}
