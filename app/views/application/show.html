@@ -22,7 +22,8 @@
             text: "Personal details",
             href: "/application/edit-personal-details/name",
             tag: {
-              text: "Not started"
+              colour: data.personalDetails.status | statusColour,
+              text: data.personalDetails.status or "Not started"
             }
           }]
         }, {
