@@ -24,8 +24,8 @@
     }) %}
     
       {{ govukInput({
-        id: "personalDetails[address[line1]",
-        name: "personalDetails[address[line1]",
+        id: "personalDetails[address][line1]",
+        name: "personalDetails[address][line1]",
         label: {
           text: "Address line 1",
           classes: "govuk-label--m"
@@ -35,8 +35,8 @@
       }) }}
     
       {{ govukInput({
-        id: "personalDetails[address[line2]",
-        name: "personalDetails[address[line2]",
+        id: "personalDetails[address][line2]",
+        name: "personalDetails[address][line2]",
         label: {
           text: "Address line 2 (optional)",
           classes: "govuk-label--m"
@@ -46,8 +46,8 @@
       }) }}
     
       {{ govukInput({
-        id: "personalDetails[address[town]",
-        name: "personalDetails[address[town]",
+        id: "personalDetails[address][town]",
+        name: "personalDetails[address][town]",
         label: {
           text: "Town or city",
           classes: "govuk-label--m"
@@ -58,8 +58,8 @@
       }) }}
     
       {{ govukInput({
-        id: "personalDetails[address[county]",
-        name: "personalDetails[address[county]",
+        id: "personalDetails[address][county]",
+        name: "personalDetails[address][county]",
         label: {
           text: "County (optional)",
           classes: "govuk-label--m"
@@ -69,8 +69,8 @@
       }) }}
     
       {{ govukInput({
-        id: "address-postcode",
-        name: "address[postcode]",
+        id: "personalDetails[address][postcode]",
+        name: "personalDetails[address][postcode]",
         label: {
           text: "Postcode",
           classes: "govuk-label--m"

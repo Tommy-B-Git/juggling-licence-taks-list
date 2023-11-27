@@ -11,15 +11,72 @@
 
 {% block content %}
 
+
+<!-- Pass in component -->
+{% set address %}
+  {{ appAddress({ address: data.personalDetails.address })}}
+{% endset %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
   <h1 class="govuk-heading-l">{{ pageName }}</h1>
-   <form novalidate method="post">
-    
-   </form> 
-
-   
-   
+  
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Your name"
+        },
+        value: {
+          text: data.personalDetails.firstName + " " + data.personalDetails.lastName
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/name",
+              text: "Change",
+              visuallyHiddenText: "change your name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Phone number"
+        },
+        value: {
+          text: data.personalDetails.telephone
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/telephone",
+              text: "Change",
+              visuallyHiddenText: "change phone number"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Address"
+        },
+        value: {
+          html: address
+        },
+        actions: {
+          items: [
+            {
+              href: "/application/edit-personal-details/address",
+              text: "Change",
+              visuallyHiddenText: "change address"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
     
   </div>
 </div>
