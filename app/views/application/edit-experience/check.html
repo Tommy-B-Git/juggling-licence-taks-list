@@ -12,76 +12,72 @@
 {% block content %}
 
 
-<!-- Pass in component -->
-{% set address %}
-  {{ appAddress({ address: data.personalDetails.address })}}
-{% endset %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <span class="govuk-caption-l">Juggling experience</span>
-  <h1 class="govuk-heading-l">{{ pageName }}</h1>
+    <span class="govuk-caption-l">Juggling experience</span>
+    <h1 class="govuk-heading-l">{{ pageName }}</h1>
   
-  {{ govukSummaryList({
-    rows: [
-      {
-        key: {
-          text: "Your name"
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "How many balls can you juggle?"
+          },
+          value: {
+            text: data.experience.numberOfBalls
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-balls",
+                text: "Change",
+                visuallyHiddenText: "how many balls you can juggle"
+              }
+            ]
+          }
         },
-        value: {
-          text: data.personalDetails.firstName + " " + data.personalDetails.lastName
+        {
+          key: {
+            text: "What is your most impressive juggling trick?"
+          },
+          value: {
+            text: data.experience.tricks
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/juggling-tricks",
+                text: "Change",
+                visuallyHiddenText: "your best juggling trick"
+              }
+            ]
+          }
         },
-        actions: {
-          items: [
-            {
-              href: "/application/edit-personal-details/name",
-              text: "Change",
-              visuallyHiddenText: "change your name"
-            }
-          ]
+        {
+          key: {
+            text: "When did you start juggling?"
+          },
+          value: {
+            html: data.experience.startDate | isoDateFromDateInput | govukDate
+          },
+          actions: {
+            items: [
+              {
+                href: "/application/edit-experience/start-date",
+                text: "Change",
+                visuallyHiddenText: "your start date"
+              }
+            ]
+          }
         }
-      },
-      {
-        key: {
-          text: "Phone number"
-        },
-        value: {
-          text: data.personalDetails.telephone
-        },
-        actions: {
-          items: [
-            {
-              href: "/application/edit-personal-details/telephone",
-              text: "Change",
-              visuallyHiddenText: "change phone number"
-            }
-          ]
-        }
-      },
-      {
-        key: {
-          text: "Address"
-        },
-        value: {
-          html: address
-        },
-        actions: {
-          items: [
-            {
-              href: "/application/edit-personal-details/address",
-              text: "Change",
-              visuallyHiddenText: "change address"
-            }
-          ]
-        }
-      }
-    ]
-  }) }}
+      ]
+    }) }}
 
-  <form novalidate method="post">
+    <form novalidate method="post">
       {{ govukRadios({
-        name: "personalDetails[status]",
+        name: "experience[status]",
         fieldset: {
           legend: {
             text: "Have you completed this section?",
@@ -102,7 +98,7 @@
             text: "No, I’ll come back to it later"
           }
         ],
-        value: data.personalDetails.status
+        value: data.experience.status
       }) }}
       
       {{ govukButton({
