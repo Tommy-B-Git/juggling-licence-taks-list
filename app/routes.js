@@ -6,6 +6,15 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+///Flasgh Messaging
+const flash = require('connect-flash')
+router.use(flash())
+
+router.all('*', (req, res, next) => {
+    res.locals.flash = req.flash('success')
+    next()
+})
+
 
 /////////// HAS ACCOUNT /////////
 router.post('/has-account', (req, res) => {
